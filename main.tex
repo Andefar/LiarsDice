@@ -1,0 +1,76 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} % sprog
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyvrb} % til verbatim input
+\usepackage[top=3cm, bottom=3cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{parskip}  % pænere design (ingen indent)
+\usepackage{color}    % farver!
+\usepackage{graphicx} % pics
+\usepackage{fancyhdr} % layout
+\usepackage{titlesec} % sections 4 levels
+\setlength{\headheight}{14.0pt} 
+\usepackage{lastpage} % lastpage
+\usepackage{amsmath,amssymb} % amsmath&symboler
+\usepackage{listings} % kildekode visning
+\usepackage{parcolumns}% minipage?
+\usepackage{tabu}     % smukke tabeller
+\usepackage{array}    % Mere godt til tabeller
+\usepackage{multirow} % multirow i tabeller
+\usepackage{multicol} % you guessed it
+\usepackage[FIGTOPCAP]{subfigure} % figur in figur
+\usepackage{titling}  % så vi kan bruge \thedate, \theauthor og \thetitle
+\usepackage{lmodern}  % Latin Modern font
+\usepackage{verbatim} % \verbatiminput{<file path>}
+\usepackage{enumitem} % for list: \begin{enumerate}[label=\Alph*]
+\usepackage{caption}
+\usepackage{todonotes}
+\usepackage{textcomp}
+\usepackage{changepage}
+\usepackage{lipsum}
+\usepackage{adjustbox}% for \begin{adjustbox}{center} instead of \centering in floats
+\usepackage{tikz}     % draw figures!
+\usetikzlibrary{arrows,arrows.meta,shapes,positioning,calc,decorations.markings}
+\tikzset{ % Standard box and line style
+    block/.style={rectangle, draw, fill=blue!10, rounded corners, text centered, text width = 10em, minimum height = 2em},
+    line/.style={draw, -latex}
+}
+
+\input{andet/settings.tex}
+\usepackage{hyperref} % should be imported as late as possible
+\author{Andreas David Lauritzen, s134849 \and%
+        Christian Hildebrand Grevil, s093434 \and%
+       Patrick Kasting, s124313}
+
+% ----- SIDEHOVED/SIDEFOD -----
+\pagestyle{fancy}
+\lhead{Logical Theories for Uncertainty and Learning} \chead{} \rhead{2016}
+\lfoot{} \cfoot{} \rfoot{Page \thepage\ of \pageref{LastPage}}
+
+% ----- START DOKUMENT -----
+\begin{document}
+
+% ----- FORSIDE  -----
+\input{andet/forside.tex}
+\pagebreak
+
+% ----- INDHOLD -----
+\tableofcontents
+\pagebreak
+
+% ----- MAIN -----
+\section{Introduction}
+\input{introduction.tex}
+
+\section{Epistemic Logic and Games - Theory}
+\input{theory.tex}
+
+\section{Conclusion}
+\input{conclusion.tex}
+
+\section{Future Work}
+\input{future_work.tex}
+
+
+
+\end{document} 

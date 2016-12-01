@@ -1,0 +1,92 @@
+% colors for SQL language
+\definecolor{sqlblue}{RGB}{0, 178, 238}
+\definecolor{sqlorange}{RGB}{255,193,37}
+\definecolor{sqlgreen}{RGB}{0,180,0}
+
+% custom settings for listings
+\lstset{language={C},%
+        frame=single,%
+        showstringspaces=false,%
+        mathescape=true,%
+        escapeinside={(*@}{@*)},%
+        captionpos=b,%
+        morecomment=[l]{\#},%
+        commentstyle=\color{gray},%
+        stringstyle=\ttfamily\color{sqlgreen},%
+        keywordstyle=\bfseries\color{sqlblue}%
+}
+
+\lstset{literate=%
+   *{0}{{{\color{sqlorange}0}}}1
+    {1}{{{\color{sqlorange}1}}}1
+    {2}{{{\color{sqlorange}2}}}1
+    {3}{{{\color{sqlorange}3}}}1
+    {4}{{{\color{sqlorange}4}}}1
+    {5}{{{\color{sqlorange}5}}}1
+    {6}{{{\color{sqlorange}6}}}1
+    {7}{{{\color{sqlorange}7}}}1
+    {8}{{{\color{sqlorange}8}}}1
+    {9}{{{\color{sqlorange}9}}}1
+}
+
+% define new column types: l,c,r med størrelse: C(2cm)
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% define command for large (wide) pictures
+\newcommand{\includewidegraphics}[1]{\centerline{\includegraphics[width=1.2\textwidth]{#1}}}
+
+\captionsetup{skip=5pt}
+
+% Commands for Program analyse
+\def\Ell{\{\hspace{1pt}\ell\hspace{1.1pt}\}} % "set ell (L)".
+\usepackage{stmaryrd} % for \llbracket
+\newcommand{\pLabel}[1]{\hspace{1pt}$\llbracket\hspace{2pt}\texttt{#1}\hspace{2pt}\rrbracket^{\ell}$}
+% TODO: Saml \pLabel så den kan få en optional parameter:
+\newcommand{\pLabeL}[2]{\hspace{1pt}$\llbracket\hspace{2pt}\texttt{#1}\hspace{2pt}\rrbracket^{\ell_{#2}}$}
+\newcommand{\bigU}{\hspace{2pt}\bigcup\hspace{2pt}}
+
+\def\arraystretch{1.8} % mere vertikalt mellemrum i tabeller
+
+% Modificeret udgave af: http://tex.stackexchange.com/a/19678
+\newcommand{\specialcell}[2][c]{{\def\arraystretch{1}%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}}
+
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+
+\DeclareMathOperator{\suffix}{suffix}
+\DeclareMathOperator{\prefix}{prefix}
+
+
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\footnotesize,
+ %
+ frame=lines,  % top and bottom rule only
+ framesep=2em, % separation between frame and text
+ rulecolor=\color{Gray},
+ %
+ label=\fbox{\color{Black}data.txt},
+ labelposition=topline,
+ %
+ commandchars=\|\(\), % escape character and argument delimiters for
+                      % commands within the verbatim
+ commentchar=*        % comment character
+}
+
+
+% http://tex.stackexchange.com/a/35044
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
+\newcommand{\blacirk}[2][black,fill=black]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
