@@ -34,7 +34,11 @@ project period (i.e., on or before Nov 27th) and I will send you some intermedia
 feedback.
 
 # Sources and articles:
+## Mandatory
+https://www.campusnet.dtu.dk/cnnet/filesharing/download/94781834-9346-46a1-8fda-7f8f1c8910de
+https://www.campusnet.dtu.dk/cnnet/filesharing/download/ccdfe460-4f33-4fb0-9877-5a8f3b8f9588
 
+## Extra:
 https://www.math.ucla.edu/~tom/papers/LiarsDice.pdf
 http://homepages.cwi.nl/~jve/books/gass/lies.pdf
 https://projecteuclid.org/download/pdf_1/euclid.aoms/1177697075
