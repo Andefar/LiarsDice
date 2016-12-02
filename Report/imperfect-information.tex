@@ -1,24 +1,67 @@
-In games of imperfect information, the players are not completely sure of the current state of the game. That is, one or more players cannot tell two or more states apart. This is a classic application of a possible worlds model. In this section, based on \cite{benthem2001a}, we are going to combine game trees and possible worlds models in order to model games of imperfect information\dots
+In games of imperfect information, the players are not always sure of the current state of the game. That is, one or more players cannot tell apart two or more states of the game. This is a classic application of a possible worlds model. In this section, based on \cite{benthem2001a}, we are going to combine game trees and possible worlds models in order to model games of imperfect information.
 
 { \color{red} I don't think bisimulations are important in this article. This is a introductory article on the connections between game theory and epistemic logic. Bisimulations are a more advanced tool for reducing the size of your games so that they are easier to handle. Hence, they are mostly a tool for gaining efficiency and efficiency is not in introductory topic. I would rather describe how to compute the Nash equilibrium of the Liar's dice example. }
 
-\subsection{Perfect information game trees}
+\subsection{Perfect information game trees} \label{seq:perfect-information}
 
-{ \color{red} We need this subsection so that we can contrast with games of imperfect information in later subsections. We only need to describe the \emph{the dynamic modal language}, if we want to write down concrete strategies for our example. }
+{ \color{red} These is possibly too much theory in this subsection but I wasn't quite sure where this subsection was headed when i started. }
 
-\begin{itemize} \color{red}
-\item Formal definition of perfect-information game trees
-\item Formal definition of strategies in perfect-information games.
-\item Short introduction to outcomes and powers (C1, C2, and C3).
-\end{itemize}
+First, we consider two-player games of perfect information: Given a set $ \atomicprops $ of atomic propositions, a game tree $ M = (S, \{ R_{a} : a \in A \}, V) $ for such a game is a set $ S $ of states, a set containing one binary relation $ R_{a} \subseteq (S \times S) $ for each action $ a $ in the set $ A $ of all actions, and a valuation function $ V : S \rightarrow 2^{\atomicprops} $ \cite{benthem2001a}. The actions are also called moves. The states are partitioned among the players, so that each state is controlled by exactly one player. We let $ \atomicprops $ contain the propositions $ \turn_{1} $, $ \turn_{2} $, $ \win_{1} $, $ \win_{2} $, and define $ V $ such that $ \turn_{i} $ holds of a state $ s $ if and only if player $ i $ controls $ s $. Also, we define $ V $ such that $ \win_{i} $ holds of a state $ s $ if and only if player $ i $ wins at $ s $. Finally, we let $ \leaf $ be true of exactly the leaves of $ M $.
+
+In order to express properties of a state in a game $ M = (S, \{ R_{a} : a \in A \}, V) $, we introduce a modal language with the following syntax, where $ a \in A $ is any action and $ p \in \atomicprops $ is any proposition:
+\begin{align*}
+\alpha &::= a \barspace \alpha_{1} \cup \alpha_{2} \barspace \alpha_{1} \alpha_{2} \barspace \alpha^{\ast} \\
+\beta &::= \langle \alpha \rangle \barspace [\alpha] \barspace \beta_{1} \beta_{2} \\
+\gamma &::= \beta p
+\end{align*}
+Here, $ \alpha $ generates formulas describing sets of sequences of actions. The Kleene star denotes arbitrary finite iteration. The symbol $ \beta $ generates modalities and $ \gamma $ is the starting symbol. The expression $ \langle \alpha \rangle \phi $ denotes that $ \phi $ holds in some state resulting from performing one of the actions of $ \alpha $. The expression $ [\alpha] \phi $ denotes that $ \phi $ holds in all states resulting from performing all actions of $ \alpha $.
+
+A \emph{strategy} $ \sigma : S \rightarrow A $ for player $ i $ is a partial function from a state $ s $ with $ \turn_{i} $ to an action available from this state $ s $. If every action occurs at most once in the game tree, we can view a strategy as a set of actions. With this view, a \emph{winning strategy} $ \sigma $ for player $ i $ is one satisfying the following \cite{benthem2001a}:
+\begin{gather*}
+\WIN_{i} \leftrightarrow (\leaf \wedge \win_{i}) \vee (\turn_{i} \wedge \langle A \rangle \WIN_{i}) \vee (\neg \turn_{i} \wedge [A] \WIN_{i}) \\
+[A^{\ast}](\turn_{i} \rightarrow \langle \sigma \rangle \WIN_{i})
+\end{gather*}
+Here, we use the shorthand notation $ T = t_{1} \cup t_{2} \cup \dots \cup t_{k} $ for the $ \alpha $-formula describing the choice between all actions of a set $ T = \{ t_{1}, t_{2}, \dots, t_{k} \} $. The first formula expresses that a state $ s $ is winning for player $ i $, if 1) the game ends at $ s $ with player $ i $ as the winner, or if 2) player $ i $ has a move from $ s $ that leads him to a winning state, or if 3) the opponent has the turn but all her moves lead to states that are winning for player $ i $. The second formula expresses that from every state $ s $, if player $ i $ has the turn from $ s $, then the move described by the strategy leads to a winning state.
+
+\subsubsection*{The powers of the players}
+
+What can we say about the outcomes that the players can force? Define $ \forcing{i} X $ to be the proposition that player $ i $ has a strategy from state $ s $ in $ M $ whose resulting states are always in the set $ X $ of outcomes. It is obvious that $ \forcing{i} $ is closed under superset \cite{benthem2001a}. Let this property be C1. It is also clear that if $ \forcing{1} X $ and $ \forcing{2} Y $, then $ X $ and $ Y $ must overlap \cite{benthem2001a}. Otherwise, the players could force to inconsistent outcomes. Let this property be C2. Finally, games of perfect information are \emph{determined} meaning that for any set of outcomes, one of the players must have a winning strategy. That is, if $ \neg \forcing{1} X $, then $ \forcing{2} (S - X) $ and vice versa, if we swap player $ 1 $ and player $ 2 $. Let determinacy be C3. 
+
+%{ \color{red} We need this subsection so that we can contrast with games of imperfect information in later subsections. We only need to describe the \emph{the dynamic modal language}, if we want to write down concrete strategies for our example. }
+
+%\begin{itemize} \color{red}
+%\item Formal definition of perfect-information game trees
+%\item Formal definition of strategies in perfect-information games.
+%\item Short introduction to outcomes and powers (C1, C2, and C3).
+%\end{itemize}
 
 \subsection{Imperfect information game trees}
 
+For games of imperfect information, we extend the definition of game trees from \secref{seq:perfect-information} with possibility relations describing the states that the players can tell apart. Hence, a game tree $ M = (S, \{ R_{a} : a \in A \}, \{ \sim_{i} | i \in I \} V) $ of a game of imperfect information contains a possibility relation $ \sim_{i} $ for each of the players $ i $ in the set $ I $ of players.
+
+In order to express properties of such games, we need to add the knowledge operators of epistemic logic to the modal logic defined in \secref{seq:perfect-information}. This allows us to write expressions like $ K_{2} \neg K_{1} (\langle a \cup b \rangle \win_{1}) $, which states that player $ 2 $ does not know that player $ 1 $ knows that at least one of the moves $ a $ and $ b $ leads to his victory.
+
+The introduction of uncertainty renders the above definition of a strategy troublesome. This definition allows player $ i $ to play move $ a_{1} $ from the state $ s_{1} $ and move $ a_{2} $ from the state $ s_{2} $, even in situations where player $ i $ cannot distinguish $ s_{1} $ and $ s_{2} $. To avoid this counterintuitive situation, we define \emph{uniform strategies} to be strategies where player $ i $ plays the same move from two states, if these are indistinguishable to player $ i $.
+
+The concept of a \emph{winning strategy} also becomes less clear with the introduction of player uncertainty. Player $ i $ may play according to a strategy $ \sigma $ that guarantees a win but player $ i $ may not know this. Is this a winning strategy? In other words, should we define winning strategies in terms of the actual outcomes or in terms of the knowledge of the outcomes? \cite{benthem2001a} suggests that the latter seems more natural and defines the notion of \emph{predictive strategies} which are defined as follows: A uniform strategy $ \sigma $ for player $ i $ is predictive with respect to $ \phi $, if during all possible plays played according to $ \sigma $, player $ i $ knows that the outcome satisfies $ \phi $.
+
+\subsubsection*{The power of the players}
+
+Since non-uniform strategies are an invalid model of the capabilities of the players in games of imperfect information, we need to update the definition of $ \forcing{i} $: We replace \emph{strategy} by \emph{uniform strategy} and leave the remaining part of the definition unchanged. After this change, C1 and C2 still hold. However, determinacy (C3) is no longer guaranteed as shown by the example in \figref{fig:non-determinancy}. { \color{red} Create figure similar to Figure 2 of \cite{benthem2001a} or maybe Liar's dice reveals this. }.
+
+\subsubsection*{Limitations and the possibility relations}
+
+The presented definition of games of imperfect information is rather broad: It allows for many different kinds of uncertainties. Player $ i $ may not know, which move the opponent has played but it can also be that he does not know what he played himself. He may not know, whose turn it is or whether the game has ended. While it seems natural that players can be uncertain of the moves of their opponents, it seems much less natural that they can be unsure about who is next to move. Hence, it seem natural to consider several limitations to the possibility relations of the games.
+
+{ \color{red} List the restrictions discussed in \cite{benthem2001a} including the beer example. }
+
+
+
 \begin{itemize} \color{red}
-\item Formal definition of imperfect-information game trees
-\item Strategies in imperfect games (the discussion from V.3). Maybe it is better to describe this after perfect recall.
-\item Short introduction to outcomes and powers in imperfect games (C3 does not hold anymore).
-\item Remarks on the looseness of this definition: "Players need not know what the opponent has played, or what they played themselves, they need not know if it is their turn, or whether the game has ended, etc. One can think up plausible scenarios with all of the pictures shown in Figure 6."
+%\item Formal definition of imperfect-information game trees
+%\item Strategies in imperfect games (the discussion from V.3). Maybe it is better to describe this after perfect recall.
+%\item Short introduction to outcomes and powers in imperfect games (C3 does not hold anymore).
+%\item Remarks on the looseness of this definition: "Players need not know what the opponent has played, or what they played themselves, they need not know if it is their turn, or whether the game has ended, etc. One can think up plausible scenarios with all of the pictures shown in Figure 6."
 \item How to restrict the imperfect-information-game-trees model to be more "realistic": Describe the examples from "III.3. Constraints for special axioms".
 \end{itemize}
 
