@@ -30,14 +30,17 @@
 \usepackage{lipsum}
 \usepackage{adjustbox}% for \begin{adjustbox}{center} instead of \centering in floats
 \usepackage{tikz}     % draw figures!
+\usepackage{xspace}
 \usetikzlibrary{arrows,arrows.meta,shapes,positioning,calc,decorations.markings}
 \tikzset{ % Standard box and line style
     block/.style={rectangle, draw, fill=blue!10, rounded corners, text centered, text width = 10em, minimum height = 2em},
     line/.style={draw, -latex}
 }
 
+
 \input{andet/settings.tex}
 \usepackage{hyperref} % should be imported as late as possible
+
 \author{Andreas David Lauritzen, s134849 \and%
         Christian Hildebrand Grevil, s093434 \and%
        Patrick Kasting, s124313}
@@ -46,6 +49,8 @@
 \pagestyle{fancy}
 \lhead{Logical Theories for Uncertainty and Learning} \chead{} \rhead{2016}
 \lfoot{} \cfoot{} \rfoot{Page \thepage\ of \pageref{LastPage}}
+
+\input{andet/commands.tex}
 
 % ----- START DOKUMENT -----
 \begin{document}
@@ -62,15 +67,16 @@
 \section{Introduction}
 \input{introduction.tex}
 
-\section{Epistemic Logic and Games - Theory}
-\input{theory.tex}
+\section{Epistemic Logic and Games of Imperfect Information} \label{sec:imperfect-information}
+\input{imperfect-information.tex}
 
-\section{Conclusion}
+\section{Epistemic Logic and Common Knowledge of Rationality} \label{sec:rationality}
+\input{rationality.tex}
+
+\section{Conclusion} \label{sec:conclusion}
 \input{conclusion.tex}
 
-\section{Future Work}
-\input{future_work.tex}
-
-
+\bibliographystyle{alpha}
+\bibliography{bibtex/bibtex}
 
 \end{document} 
