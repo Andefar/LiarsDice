@@ -37,7 +37,7 @@ What can we say about the outcomes that the players can force? Define $ \forcing
 
 \subsection{Imperfect information game trees}
 
-For games of imperfect information, we extend the definition of game trees from \secref{seq:perfect-information} with possibility relations describing the states that the players can tell apart. Hence, a game tree $ M = (S, \{ R_{a} : a \in A \}, \{ \sim_{i} | i \in I \} V) $ of a game of imperfect information contains a possibility relation $ \sim_{i} $ for each of the players $ i $ in the set $ I $ of players.
+For games of imperfect information, we extend the definition of game trees from \secref{seq:perfect-information} with possibility relations describing the states that the players can tell apart. Hence, a game tree $ M = (S, \{ R_{a} : a \in A \}, \{ \sim_{i} | i \in I \} V) $ of a game of imperfect information contains a uncertainty relation $ \sim_{i} $ for each of the players $ i $ in the set $ I $ of players.
 
 In order to express properties of such games, we need to add the knowledge operators of epistemic logic to the modal logic defined in \secref{seq:perfect-information}. This allows us to write expressions like $ K_{2} \neg K_{1} (\langle a \cup b \rangle \win_{1}) $, which states that player $ 2 $ does not know that player $ 1 $ knows that at least one of the moves $ a $ and $ b $ leads to his victory.
 
@@ -108,7 +108,7 @@ As an example of a game of imperfect information, we now consider the game Liar'
 The game can be formalised as follows \cite{ferguson1991}. In round $n$ player $i$ has the turn and rolls the die. She observes the outcome, a random integer $X(n)$ taking the values from 1 to 6 with equal probabilities. Then she announces an integer $y(n)$ between $y(n-1)+1$ and 6, both inclusive, with $y(0) = 0$. The next player $j$ then announces whether she doubts or believes the claim. If $y(n)=6$ then she always doubts. If she doubts then $j$ wins if $X(n) < y(n)$ and $i$ wins otherwise. If she believes then round $n+1$ begins and $j$ has the turn.
 
 \subsection{Perfect recall}
-Liar's Dice satisfies the property \emph{Perfect Recall}~\cite{benthem2001a} -- the players remember their own previous moves, as well as the uncertainties they had at each stage. This can be shown, by looking at the game tree and verifying that, for any player $i$ and any two states related by the uncertainty relation $~_i$, the sequence of moves (made by $i$) leading to each of the two states are the same. 
+Liar's Dice satisfies the property \emph{Perfect Recall}~\cite{benthem2001a} -- the players remember their own previous moves, as well as the uncertainties they had at each stage. This can be shown, by looking at the game tree and verifying that, for any player $i$ and any two states related by the uncertainty relation $\sim_i$, the sequence of moves (made by $i$) leading to each of the two states are the same. 
 
 For this game \emph{Perfect Recall} has little significance under the assumption that all agents are rational, since the rounds that came before the previous one shouldn't impact the decision for the current round.
 
