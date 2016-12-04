@@ -91,7 +91,7 @@ Next, it seem natural that the players know what moves are currently possible. T
 
 Finally, if all players should be aware that the game has ended and if this should be common knowledge, we can impose the following limitation: $ \leaf \rightarrow \cknow_{I} \leaf $.
 
-{ \color{red} The interchange principle (the beer example?)}
+% { \color{red} The interchange principle (the beer example?)}
 
 
 %\begin{itemize} \color{red}
@@ -122,16 +122,16 @@ Note that for this game, \emph{Perfect Recall} has little significance under the
 
 { \color{red} Predictive strategies? Ask Nina\dots }
 
-\subsection{Indistinguishable actions and Product Update}
-We already introduced the notion of epistemic indistinguishability between states, modelled by the uncertainty relation $\sim_i$. Now we will see that a natural next step is to add an uncertainty relation between actions to our game models as well. With this expansion of the uncertainty relation we obtain a more general model, as different actions can lead to the same outcomes. An example of indistinguishable actions in Liar's Dice are those performed by Nature, from the perspective of a player that doesn't have the turn. The \emph{Product Update} mechanism is described as~\cite{benthem2001a}:
+\subsection{Indistinguishable actions and product update}
+We already introduced the notion of epistemic indistinguishability between states, modelled by the possibility relations $\sim_i$. Now, we will see that a natural next step is to add an possibility relations between actions to our game models as well. With this expansion of the possibility relations, we obtain a more general model, as different actions can lead to the same outcomes. An example of indistinguishable actions in Liar's Dice are those performed by Nature, from the perspective of a player that doesn't have the turn.
+
+The \emph{Product Update} mechanism is described as follows \cite{benthem2001a}:
 $$
 (x,a)\sim_i(y,b) \leftrightarrow x\sim_i y \mbox{ and } a\sim_i b
 $$
-where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) previous state, and 2) last made action. It can be used iteratively to compute next levels of game trees.
-
-van Benthem proves that the following three properties determine Product Update:
+where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) the previous state, and 2) the last performed action. It can be used iteratively to compute the next levels of game trees. \cite{benthem2001a} proves that the following three properties determine Product Update:
 \begin{enumerate}
 \item[(a)] Perfect Recall
 \item[(b)] Propagation of uncertainty: If $x\sim_i y$ then after action $a$ in both cases $(x,a)\sim_i (y,a)$
-\item[(c)] Actions are either always distinguishable, or never: If $(x,a)\sim_i (y,b)$ then whenever $u\sim_i v$ also $(u,a)\sim_i (v,b)$.
+\item[(c)] Actions are either always or never distinguishable: If $(x,a)\sim_i (y,b)$ then whenever $u\sim_i v$ also $(u,a)\sim_i (v,b)$.
 \end{enumerate}
