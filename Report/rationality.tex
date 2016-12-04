@@ -45,19 +45,22 @@ Assume that the black nodes in the game tree is where the player Ann has to sele
 
 Here, it can be seen that common knowledge of rationality implies backward induction. To proof that this is actually the case, one must look into epistemic logic to try and model the notion of common knowledge of rationality. 
 
-The first step is to create a possible worlds model $M$, where $\Omega$ is the set of all states of the world. A state in the possible world model represents a set of strategies for each of the players in the game.
-The set of states in the world where all players are rational can be denoted $R$, and the set of states where $R$ is common knowledge, $CR$. At some states in the world, the strategies represented by these state lead to the inductive outcome. Let $I$ denote the set of these states.
-In \cite{aumann1995a}, a detailed proof is given to show that
+First step is to create a possible worlds model $M$, where $\Omega$ is the set of all states of the world. 
+Let $s$  be a function defined by
+$$
+s(\omega) = \times_i S_i
+$$
+where $S_i$ is the set of all strategies of player $i$. The function $s$ is therefore a function that maps a state $\omega$ in the world model, to a tuple of the players strategies at $\omega$.
+Let the set of states in $M$, where $s(\omega)$ returns strategies that are rational for each players in the game, be denoted $R$. Let the set of states where $R$ is common knowledge be denoted $CR$. At some states in the $M$, the strategy represented in the state leads to the inductive outcome. Let $I$ denote these states.
+In \cite{aumann1995a} a detailed proof is given to show that:
 $$
 CR \subset I.
 $$
 Which means that common knowledge of rationality implies correctness of backward induction.
 
 \subsection{Discussion}
-It is worth to investigate a play of a game where some states are not reached. Previously we assumed that a player would act rationally at every state in the game, but let's assume that we only demand rationality at the states that are actually reached.
-If a state is never reached, then one could actually say that any decision made in that state is actually rational, but it's obvious that this prevents backward induction from working correctly. Therefore it is important to assume rationality at all vertices.
-
-Furthermore lets consider a scenario where a player acts depending on her opponent's choices. Say that the opponent made an irrational choice. In this case, the player must not act depending on it, and believe that the opponent will act irrationally again, as it contradicts with the common knowledge of rationality. The player may remember and utilize the opponents actions in the game so far, but she may not reason about if they were rational or not. She must believe, in accordance with common knowledge of rationality, that her opponent is rational, for backward induction to work.
+It is worth to investigate a play of a game where some nodes are not reached. Previously we assumed that a player would act rationally at every point in the game, but let's assume that we only demand rationality at the nodes that are actually reached in the game tree.
+If a node is never reached, then one could possibly say that any decision made in that node is actually rational, but it's obvious that this prevents backward induction from working correctly. Therefore it is important to assume rationality at all nodes.
 
 Common knowledge of rationality is a quite rare scenario in practice, given that the players are human. Often human players are not rational at all or at least it is not common knowledge. In these cases it would be irrational to choose a strategy based on the result of the backwards induction, because a player do not know the reasons for his/hers opponents choices.
 
