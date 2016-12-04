@@ -3,6 +3,8 @@
 ._*
 *.gz
 *.log
+*.aux
+*.nfs*
 *.out
 *.pdf
 *.toc
