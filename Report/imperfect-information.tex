@@ -111,10 +111,20 @@ This can be formalised as follows \cite{ferguson1991}. In round $n$ player $i$ h
 \subsection{Perfect recall}
 Liar's Dice satisfies the property \emph{Perfect Recall}~\cite{benthem2001a} -- the players remember their own previous moves, as well as the uncertainties they had at each stage. This can be shown, by looking at the game tree and verifying that, for any player $i$ and any two states related by the uncertainty relation $\sim_i$, the sequence of moves (made by $i$) leading to each of the two states are the same. 
 
-In this game, \emph{Perfect Recall} has little significance under the assumption that all agents are rational, since the rounds that came before the previous one shouldn't impact the decision for the current round.
+Note that for this game, \emph{Perfect Recall} has little significance under the assumption that all agents are rational, since the rounds that came before the previous one shouldn't impact the decision for the current round.
 
 { \color{red} Predictive strategies? Ask Nina\dots }
 
-\subsection{Information update}
+\subsection{Indistinguishable actions and Product Update}
+We already introduced the notion of epistemic indistinguishability between states, modelled by the uncertainty relation $\sim_i$. Now we will see that a natural next step is to add an uncertainty relation between actions to our game models as well. With this expansion of the uncertainty relation we obtain a more general model, as different actions can lead to the same outcomes. An example of indistinguishable actions in Liar's Dice are those performed by Nature, from the perspective of a player that doesn't have the turn. The \emph{Product Update} mechanism is described as~\cite{benthem2001a}:
+$$
+(x,a)\sim_i(y,b) \leftrightarrow x\sim_i y \mbox{ and } a\sim_i b
+$$
+where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) previous state, and 2) last made action. It can be used iteratively to compute next levels of game trees.
 
-{ \color{red} This is the least important and should be left out, if we run out of space. }
+van Benthem proves that the following three properties determine Product Update:
+\begin{enumerate}
+\item[(a)] Perfect Recall
+\item[(b)] Propagation of uncertainty: If $x\sim_i y$ then after action $a$ in both cases $(x,a)\sim_i (y,a)$
+\item[(c)] Actions are either always distinguishable, or never: If $(x,a)\sim_i (y,b)$ then whenever $u\sim_i v$ also $(u,a)\sim_i (v,b)$.
+\end{enumerate}
