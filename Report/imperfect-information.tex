@@ -106,14 +106,15 @@ Finally, if all players should be aware that the game has ended and if this shou
 
 As an example of a game of imperfect information, we now consider the game Liar's Dice. In this game\footnote{A variety of dice games are called Liar's Dice. They all have elements of concealed die rolls and deception. The variant we consider is probably the simplest.}, two players take turns rolling a single die under a cup, privately looking at the result, and then call out an outcome of the die roll. The player may lie about the outcome of the roll. Now, the opponent can accept the call and start a new round by re-rolling the die or she can challenge the call by lifting the cup. If the call was correct, she looses the game and if the call was a lie, she wins the game. In each round, a player must call out a greater outcome than the one called in the previous round.
 
-This can be formalised as follows \cite{ferguson1991}. In round $n$ player $i$ has the turn and rolls the die. She observes the outcome, which is a random integer $X(n)$ taking the values from 1 to 6 with equal probabilities. Then she announces an integer $y(n)$ between $y(n-1)+1$ and 6, both inclusive, with $y(0) = 0$. The next player $j$ then announces whether she doubts or believes the claim. If $y(n)=6$ then she always doubts. If she doubts then $j$ wins if $X(n) < y(n)$ and $i$ wins otherwise. If she believes then round $n+1$ begins and $j$ has the turn.
+Given a die with $ k $ faces, this can be formalised as follows \cite{ferguson1991}. In round $n$ player $i$ has the turn and rolls the die. She observes the outcome, which is a random integer $X(n)$ taking the values from $ 1 $ to $ k $ with equal probabilities. Then she announces an integer $y(n)$ between $y(n-1)+1$ and $ k $, both inclusive, with $y(0) = 0$. The next player $j$ then announces whether she doubts or believes the claim. If $y(n)=k$ then she always doubts. If she doubts, then $j$ wins if $X(n) \neq y(n)$ and $i$ wins otherwise. If she believes, then round $n+1$ begins and $j$ has the turn. A game tree for this game is shown in \figref{fig:liars-dice-tree}.
 
 \begin{figure}[htbp]
 \centering
 \input{pic/liars-dice-tree.tex}
-\caption{Game tree of the Liar's Dice game described in \secref{sec:liars-dice}.}
+\caption{Game tree of the Liar's Dice game described in \secref{sec:liars-dice}. In this instance of the game, the "die" has two faces. We let N, 1, and 2 denote nature, player 1, and player 2, respectively. In order to keep the figure simple, we only depict when an uncertainty first arises. These uncertainties propagate down the tree under the rule that the two players can distinguish all actions except from the ones performed by nature.}
 \label{fig:liars-dice-tree}
 \end{figure}
+
 
 \subsection{Perfect recall}
 Liar's Dice satisfies the property \emph{Perfect Recall}~\cite{benthem2001a} -- the players remember their own previous moves, as well as the uncertainties they had at each stage. This can be shown, by looking at the game tree and verifying that, for any player $i$ and any two states related by the uncertainty relation $\sim_i$, the sequence of moves (made by $i$) leading to each of the two states are the same. 
@@ -131,7 +132,7 @@ $$
 $$
 where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) the previous state, and 2) the last performed action. It can be used iteratively to compute the next levels of game trees. \cite{benthem2001a} proves that the following three properties determine Product Update:
 \begin{enumerate}
-\item[(a)] Perfect Recall
-\item[(b)] Propagation of uncertainty: If $x\sim_i y$ then after action $a$ in both cases $(x,a)\sim_i (y,a)$
+\item[(a)] Perfect Recall.
+\item[(b)] Propagation of uncertainty: If $x\sim_i y$ then after action $a$ in both cases $(x,a)\sim_i (y,a)$.
 \item[(c)] Actions are either always or never distinguishable: If $(x,a)\sim_i (y,b)$ then whenever $u\sim_i v$ also $(u,a)\sim_i (v,b)$.
 \end{enumerate}

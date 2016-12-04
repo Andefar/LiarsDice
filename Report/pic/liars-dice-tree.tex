@@ -3,9 +3,33 @@
     child {
         node (11) {$ 1 $}
         child {
-            node { "$ 1 $"}
+            node {"$ 1 $"}
             child {
-                node {lift}
+                node [label={below:$ \win_{1} $}] {lift}
+                child [grow=left] {
+                    node {N}
+                    child [grow=up] {
+                        node {2}
+                        child [grow=up] {
+                            node {1}
+                            child [grow=up] {
+                                node {N}
+                                edge from parent [draw=none]
+                            }
+                            edge from parent [draw=none]
+                        }
+                        edge from parent [draw=none]
+                    }
+                    child [grow=down] {
+                        node {2}
+                        child [grow=down] {
+                            node {1}
+                            edge from parent [draw=none]
+                        }
+                        edge from parent [draw=none]
+                    }
+                    edge from parent [draw=none]
+                }
             }
             child {
                 node {roll}
@@ -14,34 +38,37 @@
                     child {
                         node {"2"}
                         child {
-                            node {lift}
+                            node [label={below:$ \win_{1} $}] {lift}
                         }
                     }
+                    edge from parent node [left] {$ \tfrac{1}{2} $}
                 }
                 child {
                     node (122) {$ 2 $}
                     child {
                         node {"2"}
                         child {
-                            node {lift}
+                            node [label={below:$ \win_{2} $}] {lift}
                         }
                     }
+                    edge from parent node [right] {$ \tfrac{1}{2} $}
                 }
             }
         }
         child {
             node { "$ 2 $" }
             child {
-                node {lift}
+                node [label={below:$ \win_{2} $}] {lift}
             }
         }
+        edge from parent node [above left] {$ \tfrac{1}{2} $}
     }
     child {
         node (12) {$ 2 $}
         child {
             node { "$ 1 $" }
             child {
-                node {lift}
+                node [label={below:$ \win_{1} $}] {lift}
             }
             child {
                 node {roll}
@@ -50,29 +77,37 @@
                     child {
                         node {"2"}
                         child {
-                            node {lift}
+                            node [label={below:$ \win_{1} $}] {lift}
                         }
                     }
+                    edge from parent node [left] {$ \tfrac{1}{2} $}
                 }
                 child {
                     node (222) {$ 2 $}
                     child {
                         node {"2"}
                         child {
-                            node {lift}
+                            node [label={below:$ \win_{2} $}] {lift}
                         }
                     }
+                    edge from parent node [right] {$ \tfrac{1}{2} $}
                 }
             }
         }
         child {
             node { "$ 2 $" }
             child {
-                node {lift}
+                node [label={below:$ \win_{1} $}] {lift}
+                child [grow=right] {
+                    node {\phantom{N}} % phantom
+                    edge from parent [draw=none]
+                }
             }
         }
-    };
+        edge from parent node [above right] {$ \tfrac{1}{2} $}
+    }
+;
 \path (11) edge [-, dashed] node [above] {2} (12);
-\path (121) edge [-, dashed] node [above] {2} (122);
-\path (221) edge [-, dashed] node [above] {2} (222);
+\path (121) edge [-, dashed] node [above] {1} (122);
+\path (221) edge [-, dashed] node [above] {1} (222);
 \end{tikzpicture}
