@@ -3,7 +3,7 @@ In game theory, the default assumption is that all players are perfectly rationa
 In this section we shall investigate what rationality is. We shall also examine why common knowledge of rationality implies correctness of backward induction.
 
 \paragraph*{Backward induction}
-The idea of backward induction is straightforward: When a game tree has been constructed and payoffs have been assigned to the leaves, use a bottom-up approach to determine the \emph{inductive outcome}, which can then be used to determine strategies. 
+The idea of backward induction is straightforward: When a game tree has been constructed and payoffs have been assigned to the leaves, use a bottom-up approach to determine the \emph{inductive outcome}. This approach can also determine the strategies of the players. 
 
 Starting in the last stages (the nodes before the leaves) of the game tree, determine the action which yields maximal payoff and save the payoffs in the current node, so that the maximal payoffs propagate upwards in the tree until the root is encountered.
 
@@ -52,12 +52,12 @@ $$
 s(\omega) = \times_i S_i
 $$
 where $S_i$ is the set of all strategies of player $i$. The function $s$ is therefore a function that maps a state $\omega$ in the world model, to a tuple of the players strategies at $\omega$.
-Let the set of states in $M$, where $s(\omega)$ returns strategies that are rational for each players in the game, be denoted $R$. Let the set of states where $R$ is common knowledge be denoted $CR$. At some states in the $M$, the strategy represented in the state leads to the inductive outcome. Let $I$ denote these states.
-In \cite{aumann1995a} a detailed proof is given to show that:
+Let the set of states in $M$, where the strategies of $s(\omega)$ are rational for all players in the game, be denoted $R$. Let the set of states where $R$ is common knowledge be denoted $CR$. At some states in the $M$, the strategy represented in the state leads to the inductive outcome. Let $I$ denote these states.
+In \cite{aumann1995a} a detailed proof is given to show that
 $$
-CR \subset I.
+CR \subset I,
 $$
-Which means that common knowledge of rationality implies correctness of backward induction.
+which means that common knowledge of rationality implies correctness of backward induction.
 
 \subsection{Discussion}
 It is worth to investigate a play of a game where some nodes are not reached. Previously we assumed that a player would act rationally at every point in the game, but let's assume that we only demand rationality at the nodes that are actually reached in the game tree.

@@ -14,7 +14,7 @@ In order to express properties of a state in a game $ M = (S, \{ R_{a} : a \in A
 \beta &::= \langle \alpha \rangle \barspace [\alpha] \barspace \beta_{1} \beta_{2} \\
 \gamma &::= \beta p
 \end{align*}
-Here, $ \alpha $ generates formulas describing sets of sequences of actions. The Kleene star denotes arbitrary finite iteration. The symbol $ \beta $ generates modalities and $ \gamma $ is the starting symbol. The expression $ \langle \alpha \rangle \phi $ denotes that $ \phi $ holds in some state resulting from performing one of the actions of $ \alpha $. The expression $ [\alpha] \phi $ denotes that $ \phi $ holds in all states resulting from performing all actions of $ \alpha $.
+Here, $ \alpha $ generates formulas describing sets of sequences of actions. The Kleene star denotes arbitrary finite iteration. The symbol $ \beta $ generates modalities and $ \gamma $ is the starting symbol. The expression $ \langle \alpha \rangle \phi $ denotes that $ \phi $ holds in some state resulting from performing one of the action sequences of $ \alpha $. The expression $ [\alpha] \phi $ denotes that $ \phi $ holds in all states resulting from performing all action sequences of $ \alpha $.
 
 A \emph{strategy} $ \sigma : S \rightarrow A $ for player $ i $ is a partial function from a state $ s $ with $ \turn_{i} $ to an action available from $ s $. If every action occurs at most once in the game tree, we can view a strategy as a set of actions. With this view, a \emph{winning strategy} $ \sigma $ for player $ i $ is one satisfying the following \cite{benthem2001a}:
 \begin{gather*}
@@ -115,28 +115,28 @@ Given a die with $ k $ faces, this can be formalised as follows \cite{ferguson19
 \label{fig:liars-dice-tree}
 \end{figure}
 
-What can we say about the uncertainties in this game? The player not rolling is uncertain about the move of nature but this is the only type of uncertainty. All players know the outcomes of their own actions. Because we have no vertical uncertainty lines in the game tree, all players are always know, whose turn it is. Also, all players always know the currently available moves and all players know when the game has ended.
+What can we say about the uncertainties in this game? The player not rolling is uncertain about the move of nature but this is the only type of uncertainty. All players know the outcomes of their own actions. Also, because we have no vertical uncertainty lines in the game tree, all players always know, whose turn it is. Finally, all players always know the currently available moves and all players know when the game has ended.
 
 Using backward induction (see \secref{sec:rationality}) can we predict the outcome of the game shown in \figref{fig:liars-dice-tree}? First, assume that each player has one util at stake and that the winner takes it all. Then, it is obvious that the two states labeled "roll${}_{2}$" have expected value zero, as the die alone determines the winner from these states and each outcome is equally likely. If player $ 1 $ call out "1" after the first roll, then player $ 2 $ always looses by lifting, so see always rolls. Hence, calling "1" yields player $ 1 $ zero utils in expectancy.
 
-If player $ 1 $ rolls 1 but calls "2", she always looses. If player $ 2 $ rolls 2 and calls "2", she always wins. Hence, the expected payoff from rolling $ 1 $ is zero and the expected value from rolling 2 is one. Therefore, in expectancy, player $ 1 $ earns 0.5 utils, which causes player $ 2 $ to loose 0.5 utils, since this is a zero-sum game. Thus, having the first roll first is an advantage. Also, the optimal strategy for player $ 1 $ is to be honest and the optimal strategy for player $ 2 $ is to trust the call of player $ 1 $ and roll again.
+If player $ 1 $ rolls 1 but calls "2", she always looses. If player $ 2 $ rolls 2 and calls "2", she always wins. Hence, the expected payoff from rolling $ 1 $ is zero and the expected value from rolling 2 is one. Therefore, in expectancy, player $ 1 $ earns 0.5 utils, which causes player $ 2 $ to loose 0.5 utils, since this is a zero-sum game. Thus, having the first roll is an advantage. Also, the optimal strategy for player $ 1 $ is to be honest and the optimal strategy for player $ 2 $ is to trust the call of player $ 1 $ and roll again. Notice that these are uniform strategies.
 
 
 \subsection{Perfect recall}
-Liar's Dice satisfies the property \emph{Perfect Recall}~\cite{benthem2001a} -- the players remember their own previous moves, as well as the uncertainties they had at each stage. This can be shown, by looking at the game tree and verifying that, for any player $i$ and any two states related by the uncertainty relation $\sim_i$, the sequence of moves (made by $i$) leading to each of the two states are the same. 
+Liar's Dice satisfies the property \emph{Perfect Recall}~\cite{benthem2001a}: The players remember their own previous moves, as well as the uncertainties they had at each stage. This can be shown, by looking at the game tree and verifying that, for any player $i$ and any two states related by the uncertainty relation $\sim_i$, the sequence of moves (made by $i$) leading to each of the two states are the same. Also, the uncertainties along these sequences are the same at all stages.
 
-Note that for this game in particular, \emph{Perfect Recall} by itself has little significance under the assumption that all agents are rational, since the rounds that came before the previous one shouldn't impact the decision for the current round.
+Note that for this game in particular, Perfect Recall by itself has little significance under the assumption that all agents are rational, since the rounds that came before the previous one shouldn't impact the decision for the current round.
 
 %{ \color{red} Predictive strategies? Ask Nina\dots }
 
 \subsection{Indistinguishable actions and product update}
-We already introduced the notion of epistemic indistinguishability between states, modelled by the possibility relations $\sim_i$. Now, we will see that a natural next step is to add an possibility relations between actions to our game models as well. With this expansion of the possibility relations, we obtain a more general model, as different actions can lead to the same outcomes. An example of indistinguishable actions in Liar's Dice are those performed by Nature, from the perspective of a player that doesn't have the turn.
+We already introduced the notion of epistemic indistinguishability between states, modelled by the possibility relations $\sim_i$. Now, we will see that a natural next step is to add possibility relations between actions to our game models as well. With this expansion of the possibility relations, we obtain a more general model, as different actions can lead to the same outcomes. An example of indistinguishable actions in Liar's Dice are those performed by Nature, from the perspective of a player that doesn't have the turn.
 
 The \emph{Product Update} mechanism is described as follows \cite{benthem2001a}:
 $$
 (x,a)\sim_i(y,b) \longleftrightarrow x\sim_i y \mbox{ and } a\sim_i b
 $$
-where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) the previous state, and 2) the last performed action. It can be used iteratively to compute the next levels of game trees. \cite{benthem2001a} proves that the following three properties determine Product Update:
+where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) the previous state, and 2) the last performed action. It can be used iteratively to compute the next levels of game trees. \cite{benthem2001a} proves that the following three properties follows from Product Update:
 \begin{enumerate}
 \item[(a)] Perfect Recall.
 \item[(b)] Propagation of uncertainty: If $x\sim_i y$ then after action $a$ in both cases $(x,a)\sim_i (y,a)$.
