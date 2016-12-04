@@ -118,7 +118,7 @@ A slightly modified version of the formalization from \cite{ferguson1991} follow
 \subsection{Perfect recall}
 Liar's Dice satisfies the property \emph{Perfect Recall}~\cite{benthem2001a} -- the players remember their own previous moves, as well as the uncertainties they had at each stage. This can be shown, by looking at the game tree and verifying that, for any player $i$ and any two states related by the uncertainty relation $\sim_i$, the sequence of moves (made by $i$) leading to each of the two states are the same. 
 
-Note that for this game, \emph{Perfect Recall} has little significance under the assumption that all agents are rational, since the rounds that came before the previous one shouldn't impact the decision for the current round.
+Note that for this game in particular, \emph{Perfect Recall} by itself has little significance under the assumption that all agents are rational, since the rounds that came before the previous one shouldn't impact the decision for the current round.
 
 { \color{red} Predictive strategies? Ask Nina\dots }
 
@@ -127,7 +127,7 @@ We already introduced the notion of epistemic indistinguishability between state
 
 The \emph{Product Update} mechanism is described as follows \cite{benthem2001a}:
 $$
-(x,a)\sim_i(y,b) \leftrightarrow x\sim_i y \mbox{ and } a\sim_i b
+(x,a)\sim_i(y,b) \longleftrightarrow x\sim_i y \mbox{ and } a\sim_i b
 $$
 where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) the previous state, and 2) the last performed action. It can be used iteratively to compute the next levels of game trees. \cite{benthem2001a} proves that the following three properties determine Product Update:
 \begin{enumerate}
