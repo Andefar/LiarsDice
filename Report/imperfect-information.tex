@@ -122,6 +122,9 @@ $$
 $$
 where $(x,a)$ and $(y,b)$ are ordered pairs consisting of 1) previous state, and 2) last made action. It can be used iteratively to compute next levels of game trees.
 
-
-
-{ \color{red} Something about the three properties/axioms regarding Product Update. }
+van Benthem proves that the following three properties determine Product Update:
+\begin{enumerate}
+\item[(a)] Perfect Recall
+\item[(b)] Propagation of uncertainty: If $x\sim_i y$ then after action $a$ in both cases $(x,a)\sim_i (y,a)$
+\item[(c)] Actions are either always distinguishable, or never: If $(x,a)\sim_i (y,b)$ then whenever $u\sim_i v$ also $(u,a)\sim_i (v,b)$.
+\end{enumerate}
