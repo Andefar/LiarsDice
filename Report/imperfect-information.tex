@@ -4,7 +4,7 @@ In games of imperfect information, the players are not always sure of the curren
 
 \subsection{Perfect information game trees} \label{seq:perfect-information}
 
-{ \color{red} These is possibly too much theory in this subsection but I wasn't quite sure where this subsection was headed when I started. }
+%{ \color{red} These is possibly too much theory in this subsection but I wasn't quite sure where this subsection was headed when I started. }
 
 First, we consider two-player games of perfect information: Given a set $ \atomicprops $ of atomic propositions, a game tree $ M = (S, \{ R_{a} : a \in A \}, V) $ for such a game is a set $ S $ of states, a set containing one binary relation $ R_{a} \subseteq (S \times S) $ for each action $ a $ in the set $ A $ of all actions, and a valuation function $ V : S \rightarrow 2^{\atomicprops} $ \cite{benthem2001a}. The actions are also called moves. The states are partitioned among the players, so that each state is controlled by exactly one player. We let $ \atomicprops $ contain the propositions $ \turn_{i} $ and $ \win_{i} $ for each player $ i \in I $ in the set of players $ I $. We define $ V $ such that $ \turn_{i} $ holds of a state $ s $ if and only if player $ i $ controls $ s $. Also, we define $ V $ such that $ \win_{i} $ holds of a state $ s $ if and only if player $ i $ wins at $ s $. Finally, we let $ \leaf $ be true of exactly the leaves of $ M $.
 
