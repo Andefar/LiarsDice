@@ -43,4 +43,5 @@ https://www.math.ucla.edu/~tom/papers/LiarsDice.pdf
 http://homepages.cwi.nl/~jve/books/gass/lies.pdf
 https://projecteuclid.org/download/pdf_1/euclid.aoms/1177697075
 http://www.cs.ru.ac.za/research/groups/vrsig/pastprojects/040learning/paper02.pdf
+https://www.youtube.com/watch?v=uzsnQ1a9fq0
 
