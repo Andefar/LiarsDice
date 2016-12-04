@@ -6,7 +6,7 @@ In games of imperfect information, the players are not always sure of the curren
 
 { \color{red} These is possibly too much theory in this subsection but I wasn't quite sure where this subsection was headed when I started. }
 
-First, we consider two-player games of perfect information: Given a set $ \atomicprops $ of atomic propositions, a game tree $ M = (S, \{ R_{a} : a \in A \}, V) $ for such a game is a set $ S $ of states, a set containing one binary relation $ R_{a} \subseteq (S \times S) $ for each action $ a $ in the set $ A $ of all actions, and a valuation function $ V : S \rightarrow 2^{\atomicprops} $ \cite{benthem2001a}. The actions are also called moves. The states are partitioned among the players, so that each state is controlled by exactly one player. We let $ \atomicprops $ contain the propositions $ \turn_{1} $, $ \turn_{2} $, $ \win_{1} $, $ \win_{2} $, and define $ V $ such that $ \turn_{i} $ holds of a state $ s $ if and only if player $ i $ controls $ s $. Also, we define $ V $ such that $ \win_{i} $ holds of a state $ s $ if and only if player $ i $ wins at $ s $. Finally, we let $ \leaf $ be true of exactly the leaves of $ M $.
+First, we consider two-player games of perfect information: Given a set $ \atomicprops $ of atomic propositions, a game tree $ M = (S, \{ R_{a} : a \in A \}, V) $ for such a game is a set $ S $ of states, a set containing one binary relation $ R_{a} \subseteq (S \times S) $ for each action $ a $ in the set $ A $ of all actions, and a valuation function $ V : S \rightarrow 2^{\atomicprops} $ \cite{benthem2001a}. The actions are also called moves. The states are partitioned among the players, so that each state is controlled by exactly one player. We let $ \atomicprops $ contain the propositions $ \turn_{i} $ and $ \win_{i} $ for each player $ i \in I $ in the set of players $ I $. We define $ V $ such that $ \turn_{i} $ holds of a state $ s $ if and only if player $ i $ controls $ s $. Also, we define $ V $ such that $ \win_{i} $ holds of a state $ s $ if and only if player $ i $ wins at $ s $. Finally, we let $ \leaf $ be true of exactly the leaves of $ M $.
 
 In order to express properties of a state in a game $ M = (S, \{ R_{a} : a \in A \}, V) $, we introduce a modal language with the following syntax, where $ a \in A $ is any action and $ p \in \atomicprops $ is any proposition:
 \begin{align*}
@@ -75,25 +75,31 @@ Since non-uniform strategies do not model the capabilities of the players in gam
     };
 \path (e1) edge [-, dashed] node [above] {2} (e2);
 \end{tikzpicture}
-\caption{Game tree of an example game with imperfect information. First,  player $ 1 $ chooses between the moves $ c $ and $ d $. Player 2 cannot distinguish these moves, so she has to blindly choose between her moves $ a $ and $ b $.}
+\caption{Game tree of an example game with imperfect information. First,  player $ 1 $ chooses between the moves $ c $ and $ d $. Player 2 cannot distinguish these moves, so she has to blindly choose between her moves $ a $ and $ b $. This figure is inspired by \cite[fig.~2]{benthem2001a}}.
 \label{fig:non-determinancy}
 \end{figure}
 
-\subsubsection*{Limitations and the possibility relations}
+\subsubsection*{Limitations on the possibility relations}
 
-The presented definition of games of imperfect information is rather broad: It allows for many different kinds of uncertainties. Player $ i $ may not know, which move the opponent has played but it can also be that he does not know what he played himself. He may not know, whose turn it is or whether the game has ended. While it seems natural that players can be uncertain of the moves of their opponents, it seems much less natural that they can be unsure about who is next to move. Hence, it seem natural to consider several limitations to the possibility relations of the games.
+The presented definition of games of imperfect information is rather broad: It allows for many different kinds of uncertainties. It is possible, that player $ i $ does not know, which move the opponent has played. This is the case of \figref{fig:non-determinancy}. However, more exotic kinds of uncertainties are also possible: It is possible that player $ i $ does not know, which move he played himself. It is also possible that he does not know, whose turn it is, what are his available moves, or whether the game has ended. It seem natural to impose limitations on the game trees, such that these kinds of uncertainties are impossible.
 
-{ \color{red} List the restrictions discussed in \cite{benthem2001a} including the beer example. }
+First, it is natural to assume that the players know, what move they just made. If we assume that every state $ s $ is labeled with a unique atomic proposition $ s' $, then we can enforce this by requiring the following for all states $ s \in S $ and all actions $ a \in A $: $ \turn_{i} \wedge \langle a \rangle s' \rightarrow \langle a \rangle \know_{i} s' $ { \color{red} (giver dette mening?) }. 
+
+Second, it is natural to assume that the players know, who is next to make a move. This can be enforced by demanding $ \turn_{i} \rightarrow \cknow_{I} \turn_{i} $, where $ \cknow $ is the common knowledge operator and $ I $ is the set of players \cite{benthem2001a}.
+
+Next, it seem natural that the players know what moves are currently possible. That is, the same set of moves should be possible from two states, if the player to move cannot tell apart these two states. Formally, we demand $ \turn_{i} \wedge \langle a \rangle \true \rightarrow \know_{i} \langle a \rangle \true $ for all moves $ a \in A $ \cite{benthem2001a}. If we instead want the currently available moves to be common knowledge, we can demand $ \langle a \rangle \true \rightarrow \cknow_{I} \langle a \rangle \true $.
+
+Finally, if all players should be aware that the game has ended and if this should be common knowledge, we can impose the following limitation: $ \leaf \rightarrow \cknow_{I} \leaf $.
 
 
 
-\begin{itemize} \color{red}
+%\begin{itemize} \color{red}
 %\item Formal definition of imperfect-information game trees
 %\item Strategies in imperfect games (the discussion from V.3). Maybe it is better to describe this after perfect recall.
 %\item Short introduction to outcomes and powers in imperfect games (C3 does not hold anymore).
 %\item Remarks on the looseness of this definition: "Players need not know what the opponent has played, or what they played themselves, they need not know if it is their turn, or whether the game has ended, etc. One can think up plausible scenarios with all of the pictures shown in Figure 6."
-\item How to restrict the imperfect-information-game-trees model to be more "realistic": Describe the examples from "III.3. Constraints for special axioms".
-\end{itemize}
+%\item How to restrict the imperfect-information-game-trees model to be more "realistic": Describe the examples from "III.3. Constraints for special axioms".
+%\end{itemize}
 
 \subsection{Liar's Dice}
 
