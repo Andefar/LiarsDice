@@ -1,0 +1,78 @@
+\begin{tikzpicture}[->,level/.style={sibling distance = 5cm/#1, level distance = 1.25cm}] ]
+\node {roll}
+    child {
+        node (11) {$ 1 $}
+        child {
+            node { "$ 1 $"}
+            child {
+                node {lift}
+            }
+            child {
+                node {roll}
+                child {
+                    node (121) {$ 1 $}
+                    child {
+                        node {"2"}
+                        child {
+                            node {lift}
+                        }
+                    }
+                }
+                child {
+                    node (122) {$ 2 $}
+                    child {
+                        node {"2"}
+                        child {
+                            node {lift}
+                        }
+                    }
+                }
+            }
+        }
+        child {
+            node { "$ 2 $" }
+            child {
+                node {lift}
+            }
+        }
+    }
+    child {
+        node (12) {$ 2 $}
+        child {
+            node { "$ 1 $" }
+            child {
+                node {lift}
+            }
+            child {
+                node {roll}
+                child {
+                    node (221) {$ 1 $}
+                    child {
+                        node {"2"}
+                        child {
+                            node {lift}
+                        }
+                    }
+                }
+                child {
+                    node (222) {$ 2 $}
+                    child {
+                        node {"2"}
+                        child {
+                            node {lift}
+                        }
+                    }
+                }
+            }
+        }
+        child {
+            node { "$ 2 $" }
+            child {
+                node {lift}
+            }
+        }
+    };
+\path (11) edge [-, dashed] node [above] {2} (12);
+\path (121) edge [-, dashed] node [above] {2} (122);
+\path (221) edge [-, dashed] node [above] {2} (222);
+\end{tikzpicture}
