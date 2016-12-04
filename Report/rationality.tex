@@ -12,7 +12,7 @@ Starting in the last stages (nodes before the leafs) of the game tree, determine
 \subsection{Definitions and Assumptions}
 In order to talk about rationality in perfect information games, some important definitions and assumptions must be presented. Note that Liar's Dice examples are not used in this section as they are not perfect information games.
 
-\paragraph*{Strategy} A player participating in a game chooses a strategy, as defined previously in section \todo{ref to strategy def}. This involves that a player, when choosing a strategy and deciding what action to take at some node $v$, act as though $v$ has been reached.
+\paragraph*{Strategy} A player participating in a game chooses a strategy, as defined previously in section \ref{seq:perfect-information}. This involves that a player, when choosing a strategy and deciding what action to take at some node $v$, act as though $v$ has been reached.
 
 \paragraph*{Rationality} Rationality can now be defined as \textit{choosing an action which yields maximum payoff at any node $v$}. In other word, a player will never choose a strategy that results in less payoff than another strategy.
 
@@ -25,7 +25,7 @@ Essentially common knowledge of rationality boils down to all players being rati
 \subsection{Results}
 As stated before, it's important to assume that common knowledge of rationality holds, in order for backwards induction to work.
 Intuitively this requirement makes perfect sense, which is illustrated in Figure~\ref{prg:lec5}.
-Assume that the black nodes in the game tree is where a player, Ann, has to select an action. She could either end the game by taking action 1, and receive 3 utils as payoff, or continue the game by choosing action 2. By backwards induction it is obvious that she should end the game by choosing action 1, because she knows that Bob is rational and choose\todo{chose or will choose?} the payoff $A:2 \, ,\, E:4$. By choosing option 2 Ann would not optimize her payoff, because she would only receive 2 utils. Let's say Ann doesn't know that Bob will act rationally. If Ann considers it possible that Bob is not rational, Bob could possibly choose the payoffs $A:7 \, ,\, E:1$, which then would maximize Anns payoff. Therefore the common knowledge of rationality is needed.
+Assume that the black nodes in the game tree is where a player, Ann, has to select an action. She could either end the game by taking action 1, and receive 3 utils as payoff, or continue the game by choosing action 2. By backwards induction it is obvious that she should end the game by choosing action 1. This is because she knows, that Bob is rational and will choose the payoff $A:2 \, ,\, E:4$. By choosing option 2 Ann would not optimize her payoff, because she would only receive 2 utils. Let's say Ann doesn't know that Bob will act rationally. If Ann considers it possible that Bob is not rational, Bob could possibly choose the payoffs $A:7 \, ,\, E:1$, which then would maximize Anns payoff. Therefore the common knowledge of rationality is needed.
 
 
 \begin{center}
@@ -49,7 +49,7 @@ Assume that the black nodes in the game tree is where a player, Ann, has to sele
 
 Here it can be seen that common knowledge of rationality implies backwards induction. To proof that this is actually the case, one must look to epistemic logic to try and model the notion of common knowledge of rationality. 
 
-First step is to create a possible worlds model $M$, where $\omega$ is the set of all states within that world\todo{within the model?}. A state in the possible world model represents a set of strategies for each of the players in the game.
+First step is to create a possible worlds model $M$, where $\omega$ is the set of all states within the model. A state in the possible world model represents a set of strategies for each of the players in the game.
 The set of states in the world where all players are rational can be denoted $R$, and the set of states where $R$ is common knowledge, $CR$. At some states in the world, the strategy represented in the state leads to the inductive outcome. Let $I$ denote this event.
 In \cite{aumann1995a} a detailed proof is given to show that:
 $$
@@ -63,4 +63,5 @@ If a state is never reached, then one could possibly say that any decision made 
 
 Furthermore lets consider a scenario where a player acts depending on her opponent's choices. Say that the opponent made an irrational choice. In this case, the player must not act depending on it, and believe that the opponent will act irrationally again, as it contradicts with the common knowledge of rationality. The player may remember and utilize the opponents actions in the game so far, but she may not reason about if they were rational or not. She must believe, in accordance with common knowledge of rationality, that her opponent is rational, for backwards induction to work.
 
-This fact of common knowledge of rationality is a quite rare scenario in practice\todo{only when \emph{humans} play actual games, right? something about games would not be "fun to play" if every move is given beforehand}. Often players are not rational at all or at least it is not common knowledge. In these cases it would be irrational to choose a strategy based on the result of the backwards induction, because a player do not know the reasons for his/hers opponents choices.
+This fact of common knowledge of rationality is a quite rare scenario in practice, given that the players are human. Often human players are not rational at all or at least it is not common knowledge. In these cases it would be irrational to choose a strategy based on the result of the backwards induction, because a player do not know the reasons for his/hers opponents choices.
+In the human perspective the games wouldn't be worth playing if every information was known before hand, and every player acted perfectly rational.
