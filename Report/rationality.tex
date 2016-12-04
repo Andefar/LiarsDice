@@ -28,7 +28,8 @@ Intuitively it makes perfect sense to see this notion is required, as seen in fi
 Assume that the black nodes in the game tree is where, a player, Ann has to select an action. She could either end the game by taking action 1, and receiving 3 utils as payoff, or continue the game by choosing action 2. By backwards induction it is obvious that she should end the game by choosing action 1, because she knows that Bob is rational and choose the payoff $A:2 \, ,\, E:4$. By choosing option 2 Ann would not optimize her payoff, because she would only receive 2 utils. Lets say Ann does not know that Bob will act rationally. If Ann considers it possible that Bob is not rational, Bob could possible choose the payoffs $A:7 \, ,\, E:1$, which then would maximize Anns payoff. Therefore the common knowledge of rationality is needed.
 
 
-\begin{center}
+\begin{figure}[htbp]
+\centering
 	\begin{tikzpicture}[every node/.style={draw,circle}, align=center, node distance=1.9cm]
 	%Nodes
 	\node[draw,fill=black]   	(q1)   {};
@@ -44,7 +45,7 @@ Assume that the black nodes in the game tree is where, a player, Ann has to sele
 	\end{tikzpicture}
 	\caption{Game tree for game between Ann and Bob}
 	\label{prg:lec5}
-\end{center}
+\end{figure}
 
 
 Here in can be seen that common knowledge of rationality implies backwards induction. To proof that this is actually the case, one must look to epistemic logic to try and model the notion of common knowledge of rationality. 

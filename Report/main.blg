@@ -3,46 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: alpha.bst
 Database file #1: bibtex/bibtex.bib
-Warning--empty journal in ferguson1991
 You've used 4 entries,
             2543 wiz_defined-function locations,
-            583 strings with 4929 characters,
-and the built_in function-call counts, 1417 in all, are:
-= -- 133
+            586 strings with 4975 characters,
+and the built_in function-call counts, 1606 in all, are:
+= -- 158
 > -- 66
-< -- 2
+< -- 3
 + -- 22
 - -- 22
-* -- 100
-:= -- 251
-add.period$ -- 12
+* -- 111
+:= -- 269
+add.period$ -- 13
 call.type$ -- 4
 change.case$ -- 23
 chr.to.int$ -- 4
-cite$ -- 5
-duplicate$ -- 58
-empty$ -- 103
+cite$ -- 4
+duplicate$ -- 70
+empty$ -- 124
 format.name$ -- 27
-if$ -- 280
+if$ -- 334
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 5
 newline$ -- 23
 num.names$ -- 12
-pop$ -- 23
+pop$ -- 24
 preamble$ -- 1
 purify$ -- 28
 quote$ -- 0
-skip$ -- 47
+skip$ -- 55
 stack$ -- 0
-substring$ -- 61
-swap$ -- 3
-text.length$ -- 2
+substring$ -- 85
+swap$ -- 11
+text.length$ -- 3
 text.prefix$ -- 1
 top$ -- 0
 type$ -- 28
-warning$ -- 1
-while$ -- 12
+warning$ -- 0
+while$ -- 15
 width$ -- 6
-write$ -- 51
-(There was 1 warning)
+write$ -- 54
